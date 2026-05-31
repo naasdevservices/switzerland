@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switzerland</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <section class="home" id="home">
+    <div class="header">
+        <div class="logo">
+            <img src="tr3.png" class="icon" alt="icon description" />
+            <h2>switzerland</h2>
+        </div>
+        <div class="navbar">
+            <a href="#home">home</a>
+            <a href="#about">about</a>
+            <a href="#place">place</a>
+            <a href="#contact">contact</a>
+        </div>
+        
+    </div>
+    <div class="descreption">
+        <h1>
+            uncover<br>
+            the wonders of<br>
+            <span>switzerland !</span>
+        </h1>
+        <h4>
+            From stunning views to unforgettable experiences,<br> Switzerland awaits.<br> Dive into its charm and create your own adventure!
+        </h4>
+        <button id="btn"><i class="fas fa-arrow-up"></i></button>
+
+
+
+    
+    </div>
+    </section>
+
+    <section class="about" id="about">
+    <div class="why-us">
+            
+         
+         <div class="service-cards-container">
+            <h2>experience the <br>new adventure </h2>
+            <div class="service-card">
+                <div class="title">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>safe traveling</h4>
+                </div>
+                <p>Plan ahead, stay aware, secure valuables, and enjoy safely!</p>
+                
+            </div>
+            <div class="service-card">
+                <div class="title">
+                    <i class="far fa-money-bill-alt"></i>
+                    <h4>affordable price</h4>
+                </div>
+                    <p>Reasonable costs that ensure value, accessibility, and quality for consumers.</p>  
+            </div>
+            <div class="service-card">
+                <div class="title">
+                    <i class="fas fa-warehouse"></i>
+                    <h4>confort accommodation</h4>
+                </div>
+                <p>Cozy, spacious rooms with modern amenities for ultimate relaxation.</p>
+                
+            </div>
+        </div>
+       
+        <video src="swiss.mp4" controls loop></video>
+         <video src="swiss1.mp4" controls loop></video>
+        
+       
+    </div>
+
+    </section>
+
+    <section class="place" id="place">
+        <h2>Nature awaits!</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+              <img src="s1.jpg" alt="Gallery Image 1">
+            </div>
+            <div class="gallery-item">
+              <img src="s2.jpg" alt="Gallery Image 2">
+            </div>
+            <div class="gallery-item">
+              <img src="s3.jpg" alt="Gallery Image 3">
+            </div>
+            <div class="gallery-item">
+              <img src="s4.jpg" alt="Gallery Image 3">
+            </div>
+            <div class="gallery-item">
+              <img src="s5.jpeg" alt="Gallery Image 3">
+            </div>
+            <div class="gallery-item">
+              <img src="s6.jpeg" alt="Gallery Image 3">
+            </div>
+            <!-- Add more gallery items as needed -->
+          </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="contact-info">
+            <p><i class="fas fa-phone"></i> Phone: 06-62-24-00-21</p>
+            <p><i class="fas fa-envelope"></i> Email: NaAsdevservices@gmail.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> Address: Algeria</p>
+        </div>
+        <div class="contact-rs">
+            <h2> discover a mesmerizing <br> nature landscape & <br> stunning culture</h2>
+            <div class="icon">
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-github"></i>
+                <i class="fa-brands fa-twitter" ></i>
+            </div>
+            
+        </div>
+
+
+
+
+
+        
+    </section>
+
+<script>let btn=document.getElementById('btn')
+    onscroll=function(){
+        if(scrollY>=400){
+            btn.style.display='block'
+        }
+        else{
+            btn.style.display='none'
+        }
+    }
+    btn.addEventListener("click",function(){
+        scroll({
+            left:0,
+            top:0,
+            behavior:'smooth'
+        })
+    })
+    
+    </script>
+</body>
+</html>
