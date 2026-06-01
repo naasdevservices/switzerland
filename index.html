@@ -2,26 +2,521 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Switzerland</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    
+    <style>
+        /* ===== ORIGINAL CSS (preserved, only updated navbar white & circle arrow) ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            background-color: #c8d9e6;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;  /* Prevents any horizontal overflow / black space */
+        }
+
+        /* Home Section */
+        section.home {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(j3.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: 100vh; 
+            box-sizing: border-box;
+            position: relative;
+        } 
+
+        section.home .header {
+            display: flex;
+            align-items: center; 
+            gap: 350px;
+            padding: 20px 5%;
+        }
+
+        section.home .logo {
+            display: flex;
+            align-items: center; 
+            gap: 10px;
+        }
+
+        section.home .logo h2 {
+            font-size: 1.9rem;
+            text-transform: capitalize;
+            color: white;
+            font-style: italic;
+        }
+
+        section.home .icon {
+            width: 90px; 
+            height: 90px; 
+        } 
+
+        /* NAVBAR LINKS NOW WHITE (original was white, but ensuring no black) */
+        section.home .navbar {
+            display: flex;
+            padding: 5px;
+        }
+
+        section.home .navbar a {
+            margin-left: 50px; 
+            margin-right: 30px;
+            text-decoration: none; 
+            color: white;           /* white text */
+            text-transform: capitalize;
+            font-style: italic;
+            font-size: 1.5rem;
+            transition: color 0.2s;
+        }
+
+        section.home .navbar a:hover {
+            color: #299fca;
+        }
+
+        section.home .descreption {
+            position: absolute;
+            left: 100px;
+            top: 180px;
+            font-size: 1.6rem;
+            font-style: italic;
+            color: white;
+            text-transform: capitalize;
+        }
+
+        section.home .descreption span {
+            color: #4682B4;
+        }
+
+        /* About Section */
+        .service-cards-container {
+            margin-left: 100px;
+        }
+
+        section.about {
+            padding: 90px 20px;
+        }
+
+        section.about .title {
+            display: flex;
+            align-items: center;
+        }
+
+        section.about .title i {
+            border-radius: 50%;
+            background-color: rgba(44, 100, 155, 0.8);
+            padding: 12px;
+            margin: 10px;
+            color: white;
+        }
+
+        section.about .title h4 {
+            color: #4682B4;
+            font-style: italic;
+            text-transform: capitalize;
+            font-size: 1.3rem;
+        }
+
+        section.about p {
+            font-size: 1.1rem;
+            color: #09253c;
+            margin: 5px;
+        }
+
+        section.about .service-card {
+            width: 50vh;
+            margin: 5px;
+        }
+
+        section.about .why-us h2 {
+            font-size: 1.8rem;
+            text-transform: capitalize;
+            margin: 10px;
+        }
+
+        section.about video {
+            height: 470px;
+            width: 40vh;
+            border-radius: 30px;
+            background-color: #4682B4;
+            margin-right: 90px;
+            gap: 10px;
+            object-fit: cover;
+        }
+
+        section.about .why-us {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Place Section */
+        section.place {
+            padding: 50px 20px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            width: 300px;
+            height: 400px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        section.place h2 {
+            font-size: 2rem;
+            text-transform: capitalize;
+            margin: 40px;
+            text-align: center;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 50px 5%;
+            background-color: #ffffff;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+            margin-left: 30px;
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            color: #000000;
+            margin: 10px 0;
+        }
+
+        .contact-info i {
+            color: #4682B4;
+            margin-right: 10px;
+        }
+
+        .contact .contact-rs h2 {
+            margin-top: -10px;
+            text-transform: capitalize;
+            font-style: italic;
+            margin-left: 100px;
+            text-align: center;
+        }
+
+        .contact .contact-rs {
+            margin-left: 250px;
+        }
+
+        .contact .contact-rs .icon {
+            margin-left: 140px;
+        }
+
+        .contact .contact-rs .icon i {
+            margin-left: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .contact .contact-rs .icon i:hover {
+            color: #74C0FC;
+        }
+
+        /* ===== STICKY ARROW BUTTON (CIRCLE ON ALL SCREENS) ===== */
+        #btn {
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 50%;        /* Always circular */
+            background: #4296eb;
+            color: white;
+            cursor: pointer;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            font-size: 1.5rem;
+            z-index: 999;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #btn i {
+            font-size: 1.4rem;
+            margin: 0;
+        }
+
+        #btn:hover {
+            background: #2c6ea0;
+            transform: scale(1.05);
+        }
+
+        /* ===== HAMBURGER MENU & RESPONSIVE (white navbar on mobile - same white style) ===== */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            z-index: 1100;
+            transition: 0.2s;
+        }
+
+        /* Mobile overlay background */
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1040;
+        }
+        .mobile-overlay.active {
+            display: block;
+        }
+
+        /* Responsive: only for screens <= 768px */
+        @media (max-width: 768px) {
+            /* Show hamburger icon */
+            .hamburger {
+                display: block;
+                position: absolute;
+                top: 30px;
+                right: 25px;
+            }
+
+            /* Adjust header layout for mobile */
+            section.home .header {
+                gap: 0;
+                justify-content: space-between;
+                padding: 15px 20px;
+            }
+
+            section.home .logo .icon {
+                width: 60px;
+                height: 60px;
+            }
+            section.home .logo h2 {
+                font-size: 1.3rem;
+            }
+
+            /* Transform navbar into vertical slide-in menu - WHITE BACKGROUND for mobile menu */
+            section.home .navbar {
+                position: fixed;
+                top: 0;
+                right: -280px;
+                width: 260px;
+                height: 100vh;
+                background: white;          /* WHITE background as requested */
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: right 0.35s ease-in-out;
+                z-index: 1050;
+                margin: 0;
+                padding: 2rem 1rem;
+                border-radius: 20px 0 0 20px;
+                box-shadow: -5px 0 20px rgba(0,0,0,0.2);
+            }
+
+            /* Navbar links inside mobile menu: dark text for contrast */
+            section.home .navbar.nav-active {
+                right: 0;
+            }
+
+            section.home .navbar a {
+                margin: 0;
+                font-size: 1.4rem;
+                padding: 12px 20px;
+                width: 100%;
+                text-align: center;
+                border-radius: 40px;
+                color: #1a2a3a;         /* Dark text on white background */
+                font-weight: 500;
+            }
+
+            section.home .navbar a:hover {
+                background: #4682b4;
+                color: white;
+            }
+
+            /* Description section: make it relative (not absolute) to avoid cut off */
+            section.home {
+                height: auto;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+            }
+            section.home .descreption {
+                position: relative;
+                left: 0;
+                top: 0;
+                text-align: center;
+                padding: 30px 20px 60px;
+                margin-top: 20px;
+            }
+            section.home .descreption h1 {
+                font-size: 1.8rem;
+            }
+            section.home .descreption h4 {
+                font-size: 1rem;
+                line-height: 1.4;
+            }
+
+            /* About section: responsive */
+            .service-cards-container {
+                margin-left: 0;
+                padding: 0 20px;
+                text-align: center;
+            }
+            section.about {
+                padding: 50px 15px;
+            }
+            section.about .why-us {
+                flex-direction: column;
+                align-items: center;
+            }
+            section.about video {
+                width: 90%;
+                max-width: 340px;
+                height: auto;
+                margin: 20px auto;
+                margin-right: auto;
+            }
+            section.about .service-card {
+                width: 100%;
+                max-width: 380px;
+                margin: 15px auto;
+            }
+            section.about .why-us h2 {
+                text-align: center;
+                font-size: 1.6rem;
+            }
+
+            /* Gallery mobile */
+            .gallery {
+                gap: 20px;
+            }
+            .gallery-item {
+                width: 90%;
+                max-width: 280px;
+                height: 350px;
+            }
+            section.place h2 {
+                margin: 20px 0;
+                font-size: 1.8rem;
+            }
+
+            /* Contact mobile */
+            .contact {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 40px 20px;
+            }
+            .contact-info {
+                margin-left: 0;
+                text-align: center;
+            }
+            .contact .contact-rs {
+                margin-left: 0;
+                margin-top: 30px;
+            }
+            .contact .contact-rs h2 {
+                margin-left: 0;
+                font-size: 1.4rem;
+            }
+            .contact .contact-rs .icon {
+                margin-left: 0;
+                display: flex;
+                justify-content: center;
+                gap: 25px;
+            }
+            .contact .contact-rs .icon i {
+                margin-left: 0;
+                font-size: 1.8rem;
+            }
+
+            /* Arrow circle on mobile already perfect */
+            #btn {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 1.6rem;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            section.home .descreption h1 {
+                font-size: 1.5rem;
+            }
+            .gallery-item {
+                height: 300px;
+            }
+        }
+
+        /* Fix any hidden black space - ensure body and html full width */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+    </style>
 </head>
 <body>
-    <section class="home" id="home">
+
+<section class="home" id="home">
     <div class="header">
         <div class="logo">
             <img src="tr3.png" class="icon" alt="icon description" />
             <h2>switzerland</h2>
         </div>
-        <div class="navbar">
+        <div class="navbar" id="navbar">
             <a href="#home">home</a>
             <a href="#about">about</a>
             <a href="#place">place</a>
             <a href="#contact">contact</a>
         </div>
-        
+        <!-- Hamburger icon (visible only on mobile) -->
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
     </div>
     <div class="descreption">
         <h1>
@@ -33,18 +528,14 @@
             From stunning views to unforgettable experiences,<br> Switzerland awaits.<br> Dive into its charm and create your own adventure!
         </h4>
         <button id="btn"><i class="fas fa-arrow-up"></i></button>
-
-
-
-    
     </div>
-    </section>
+    <!-- Overlay for closing menu when clicking outside -->
+    <div id="mobileOverlay" class="mobile-overlay"></div>
+</section>
 
-    <section class="about" id="about">
-    <div class="why-us">
-            
-         
-         <div class="service-cards-container">
+<section class="about" id="about">
+    <div class="why-us">    
+        <div class="service-cards-container">
             <h2>experience the <br>new adventure </h2>
             <div class="service-card">
                 <div class="title">
@@ -52,14 +543,13 @@
                     <h4>safe traveling</h4>
                 </div>
                 <p>Plan ahead, stay aware, secure valuables, and enjoy safely!</p>
-                
             </div>
             <div class="service-card">
                 <div class="title">
                     <i class="far fa-money-bill-alt"></i>
                     <h4>affordable price</h4>
                 </div>
-                    <p>Reasonable costs that ensure value, accessibility, and quality for consumers.</p>  
+                <p>Reasonable costs that ensure value, accessibility, and quality for consumers.</p>  
             </div>
             <div class="service-card">
                 <div class="title">
@@ -67,83 +557,132 @@
                     <h4>confort accommodation</h4>
                 </div>
                 <p>Cozy, spacious rooms with modern amenities for ultimate relaxation.</p>
-                
             </div>
         </div>
-       
+        <!-- Your original videos -->
         <video src="swiss.mp4" controls loop></video>
-         <video src="swiss1.mp4" controls loop></video>
-        
-       
+        <video src="swiss1.mp4" controls loop></video>
     </div>
+</section>
 
-    </section>
-
-    <section class="place" id="place">
-        <h2>Nature awaits!</h2>
-        <div class="gallery">
-            <div class="gallery-item">
-              <img src="s1.jpg" alt="Gallery Image 1">
-            </div>
-            <div class="gallery-item">
-              <img src="s2.jpg" alt="Gallery Image 2">
-            </div>
-            <div class="gallery-item">
-              <img src="s3.jpg" alt="Gallery Image 3">
-            </div>
-            <div class="gallery-item">
-              <img src="s4.jpg" alt="Gallery Image 3">
-            </div>
-            <div class="gallery-item">
-              <img src="s5.jpeg" alt="Gallery Image 3">
-            </div>
-            <div class="gallery-item">
-              <img src="s6.jpeg" alt="Gallery Image 3">
-            </div>
-            <!-- Add more gallery items as needed -->
-          </div>
-    </section>
-
-    <section class="contact" id="contact">
-        <div class="contact-info">
-            <p><i class="fas fa-phone"></i> Phone: 06-62-24-00-21</p>
-            <p><i class="fas fa-envelope"></i> Email: NaAsdevservices@gmail.com</p>
-            <p><i class="fas fa-map-marker-alt"></i> Address: Algeria</p>
+<section class="place" id="place">
+    <h2>Nature awaits!</h2>
+    <div class="gallery">
+        <!-- Your exact original images -->
+        <div class="gallery-item">
+            <img src="s1.jpg" alt="Gallery Image 1">
         </div>
-        <div class="contact-rs">
-            <h2> discover a mesmerizing <br> nature landscape & <br> stunning culture</h2>
-            <div class="icon">
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-github"></i>
-                <i class="fa-brands fa-twitter" ></i>
-            </div>
-            
+        <div class="gallery-item">
+            <img src="s2.jpg" alt="Gallery Image 2">
         </div>
+        <div class="gallery-item">
+            <img src="s3.jpg" alt="Gallery Image 3">
+        </div>
+        <div class="gallery-item">
+            <img src="s4.jpg" alt="Gallery Image 4">
+        </div>
+        <div class="gallery-item">
+            <img src="s5.jpeg" alt="Gallery Image 5">
+        </div>
+        <div class="gallery-item">
+            <img src="s6.jpeg" alt="Gallery Image 6">
+        </div>
+    </div>
+</section>
 
+<section class="contact" id="contact">
+    <div class="contact-info">
+        <p><i class="fas fa-phone"></i> Phone: 06-62-24-00-21</p>
+        <p><i class="fas fa-envelope"></i> Email: NaAsdevservices@gmail.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> Address: Algeria</p>
+    </div>
+    <div class="contact-rs">
+        <h2> discover a mesmerizing <br> nature landscape & <br> stunning culture</h2>
+        <div class="icon">
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-github"></i>
+            <i class="fa-brands fa-twitter" ></i>
+        </div>
+    </div>
+</section>
 
-
-
-
-        
-    </section>
-
-<script>let btn=document.getElementById('btn')
-    onscroll=function(){
-        if(scrollY>=400){
-            btn.style.display='block'
-        }
-        else{
-            btn.style.display='none'
+<script>
+    // ===== STICKY ARROW BUTTON LOGIC (circle on all screens) =====
+    let btn = document.getElementById('btn');
+    
+    function handleScroll() {
+        if (window.scrollY >= 400) {
+            btn.style.display = 'flex';    // flex for centering icon
+        } else {
+            btn.style.display = 'none';
         }
     }
-    btn.addEventListener("click",function(){
-        scroll({
-            left:0,
-            top:0,
-            behavior:'smooth'
-        })
-    })
     
-    </script>
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // initial check
+    
+    btn.addEventListener("click", function() {
+        window.scroll({
+            left: 0,
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // ===== HAMBURGER MENU FUNCTIONALITY (WHITE BACKGROUND ON MOBILE) =====
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const navbar = document.getElementById('navbar');
+    const overlay = document.getElementById('mobileOverlay');
+
+    function closeMenu() {
+        navbar.classList.remove('nav-active');
+        if (overlay) overlay.classList.remove('active');
+        if (hamburgerBtn) hamburgerBtn.innerHTML = '<i class="fas fa-bars"></i>';
+    }
+
+    function openMenu() {
+        navbar.classList.add('nav-active');
+        if (overlay) overlay.classList.add('active');
+        if (hamburgerBtn) hamburgerBtn.innerHTML = '<i class="fas fa-times"></i>';
+    }
+
+    function toggleMenu() {
+        if (navbar.classList.contains('nav-active')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    }
+
+    if (hamburgerBtn) {
+        hamburgerBtn.addEventListener('click', toggleMenu);
+    }
+
+    // Close menu when clicking any nav link
+    const navLinks = document.querySelectorAll('.navbar a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            setTimeout(() => {
+                if (navbar.classList.contains('nav-active')) {
+                    closeMenu();
+                }
+            }, 100);
+        });
+    });
+
+    // Close menu when clicking overlay
+    if (overlay) {
+        overlay.addEventListener('click', closeMenu);
+    }
+
+    // On window resize: if screen width > 768px and menu is open, close it.
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            if (navbar.classList.contains('nav-active')) {
+                closeMenu();
+            }
+        }
+    });
+</script>
 </body>
 </html>
